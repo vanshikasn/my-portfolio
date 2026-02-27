@@ -1,102 +1,95 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Briefcase, Code2, Database } from "lucide-react";
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 p-6 md:p-12">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 px-6 md:px-16 py-12">
+      {/* HERO SECTION */}
       <motion.section
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-5xl mx-auto text-center space-y-4"
+        transition={{ duration: 0.8 }}
+        className="max-w-5xl mx-auto text-center space-y-6"
       >
-        <h1 className="text-4xl md:text-5xl font-bold">
-          Vanshika Nemmaniwar
+        <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+          Java Backend Developer
         </h1>
-        <p className="text-xl font-medium text-gray-600">
-          Backend Software Engineer | Java • Spring Boot • AWS
+        <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          Backend-focused Software Engineer specializing in Java, Spring Boot, and
+          scalable REST API development. Strong expertise in system design,
+          database architecture, authentication mechanisms, and writing
+          production-grade, maintainable code.
         </p>
-        <p className="max-w-3xl mx-auto text-gray-700">
-          Backend-focused Software Engineer with 2.7 years of experience
-          designing scalable microservices and secure cloud-native applications.
-          Strong expertise in Java, Spring Boot, GraphQL, AWS, and Kubernetes.
-        </p>
-
-        <div className="flex justify-center gap-4 pt-4">
-          <a
-            href="#"
-            className="px-6 py-3 bg-black text-white rounded-2xl"
-          >
-            Download Resume
-          </a>
-
-          <a
-            href="#"
-            className="px-6 py-3 border rounded-2xl flex items-center gap-2"
-          >
-            <Github size={16} /> GitHub
-          </a>
-
-          <a
-            href="#"
-            className="px-6 py-3 border rounded-2xl flex items-center gap-2"
-          >
-            <Linkedin size={16} /> LinkedIn
-          </a>
-        </div>
       </motion.section>
 
-      {/* Skills Section */}
-      <section className="max-w-5xl mx-auto mt-16">
-        <h2 className="text-2xl font-semibold mb-6">Technical Skills</h2>
+      {/* TECHNICAL EXPERTISE - PRIORITY SECTION */}
+      <section className="max-w-6xl mx-auto mt-20 space-y-10">
+        <h2 className="text-3xl font-bold flex items-center gap-3">
+          <Database className="text-green-400" /> Core Technical Skills
+        </h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-6 bg-white rounded-2xl shadow-sm">
-            <h3 className="font-semibold">Backend & Architecture</h3>
-            <p className="mt-2">
-              Java, Spring Boot, REST APIs, GraphQL, Hibernate, Spring Data JPA, Microservices
-            </p>
-          </div>
-
-          <div className="p-6 bg-white rounded-2xl shadow-sm">
-            <h3 className="font-semibold">Cloud & DevOps</h3>
-            <p className="mt-2">
-              AWS, Docker, Kubernetes, CI/CD, Git
-            </p>
-          </div>
-
-          <div className="p-6 bg-white rounded-2xl shadow-sm">
-            <h3 className="font-semibold">Databases</h3>
-            <p className="mt-2">
-              PostgreSQL, Oracle DB, MongoDB
-            </p>
-          </div>
-
-          <div className="p-6 bg-white rounded-2xl shadow-sm">
-            <h3 className="font-semibold">Security</h3>
-            <p className="mt-2">
-              Okta, MFA, OAuth2, JWT, Identity Management
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            "Java, OOP, Collections, Multithreading, Exception Handling",
+            "Spring Boot, Spring MVC, Spring Data JPA, Hibernate",
+            "REST API Design, GraphQL APIs, Microservices Architecture",
+            "SQL, Oracle DB, PostgreSQL, Query Optimization, Indexing",
+            "JWT Authentication, OAuth2, Okta MFA Integration",
+            "JUnit Testing, Maven, Git Version Control"
+          ].map((skill, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.03 }}
+              className="bg-slate-800/60 backdrop-blur-lg p-5 rounded-2xl border border-slate-700 shadow-md"
+            >
+              {skill}
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="max-w-5xl mx-auto mt-16 text-center">
-        <h2 className="text-2xl font-semibold mb-4">Get In Touch</h2>
-        <p className="text-gray-600 mb-6">
-          Open to backend engineering opportunities and cloud-native system design roles.
-        </p>
-        <a
-          href="mailto:yourmail@email.com"
-          className="px-6 py-3 bg-black text-white rounded-2xl inline-flex items-center gap-2"
-        >
-          <Mail size={16} /> Contact Me
-        </a>
+      {/* PROFESSIONAL EXPERIENCE */}
+      <section className="max-w-6xl mx-auto mt-20 space-y-10">
+        <h2 className="text-3xl font-bold flex items-center gap-3">
+          <Briefcase className="text-blue-400" /> Professional Experience
+        </h2>
+
+        <div className="bg-slate-900 border border-slate-700 rounded-2xl shadow-lg p-6 space-y-4">
+          <h3 className="text-xl font-semibold">Software Engineer – Healthcare Platforms</h3>
+          <ul className="list-disc list-inside text-slate-300 space-y-2 leading-relaxed">
+            <li>Designed and developed scalable Spring Boot microservices handling critical healthcare workflows.</li>
+            <li>Built and maintained RESTful APIs with proper validation, exception handling, and layered architecture.</li>
+            <li>Designed optimized relational schemas with indexing and transactional consistency using JPA & Hibernate.</li>
+            <li>Implemented secure authentication flows including JWT and MFA-based login systems.</li>
+            <li>Improved performance using asynchronous processing and efficient database query tuning.</li>
+          </ul>
+        </div>
       </section>
+
+      {/* PROJECT SECTION */}
+      <section className="max-w-6xl mx-auto mt-20 space-y-10">
+        <h2 className="text-3xl font-bold flex items-center gap-3">
+          <Code2 className="text-cyan-400" /> Key Project
+        </h2>
+
+        <div className="bg-slate-900 border border-slate-700 rounded-2xl shadow-lg p-6 space-y-4">
+          <h3 className="text-xl font-semibold">Medical Store Management System</h3>
+          <ul className="list-disc list-inside text-slate-300 space-y-2 leading-relaxed">
+            <li>Developing a transactional backend using Spring Boot with layered architecture (Controller-Service-Repository).</li>
+            <li>Implemented inventory, billing, supplier, and sales modules with proper business validation.</li>
+            <li>Built secure JWT-based role authentication and authorization system.</li>
+            <li>Designed stock deduction logic ensuring data consistency during concurrent operations.</li>
+            <li>Applied proper entity mapping, indexing, and ACID transaction handling for reliability.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="mt-24 text-center text-slate-500 text-sm">
+        © {new Date().getFullYear()} | Java Backend Developer Portfolio
+      </footer>
     </div>
   );
 }
