@@ -1,65 +1,102 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail } from "lucide-react";
+
+export default function Portfolio() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <div className="min-h-screen bg-gray-50 text-gray-900 p-6 md:p-12">
+      {/* Hero Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-5xl mx-auto text-center space-y-4"
+      >
+        <h1 className="text-4xl md:text-5xl font-bold">
+          Vanshika Nemmaniwar
+        </h1>
+        <p className="text-xl font-medium text-gray-600">
+          Backend Software Engineer | Java • Spring Boot • AWS
+        </p>
+        <p className="max-w-3xl mx-auto text-gray-700">
+          Backend-focused Software Engineer with 2.7 years of experience
+          designing scalable microservices and secure cloud-native applications.
+          Strong expertise in Java, Spring Boot, GraphQL, AWS, and Kubernetes.
+        </p>
+
+        <div className="flex justify-center gap-4 pt-4">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            className="px-6 py-3 bg-black text-white rounded-2xl"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            Download Resume
           </a>
+
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            className="px-6 py-3 border rounded-2xl flex items-center gap-2"
           >
-            Documentation
+            <Github size={16} /> GitHub
+          </a>
+
+          <a
+            href="#"
+            className="px-6 py-3 border rounded-2xl flex items-center gap-2"
+          >
+            <Linkedin size={16} /> LinkedIn
           </a>
         </div>
-      </main>
+      </motion.section>
+
+      {/* Skills Section */}
+      <section className="max-w-5xl mx-auto mt-16">
+        <h2 className="text-2xl font-semibold mb-6">Technical Skills</h2>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="p-6 bg-white rounded-2xl shadow-sm">
+            <h3 className="font-semibold">Backend & Architecture</h3>
+            <p className="mt-2">
+              Java, Spring Boot, REST APIs, GraphQL, Hibernate, Spring Data JPA, Microservices
+            </p>
+          </div>
+
+          <div className="p-6 bg-white rounded-2xl shadow-sm">
+            <h3 className="font-semibold">Cloud & DevOps</h3>
+            <p className="mt-2">
+              AWS, Docker, Kubernetes, CI/CD, Git
+            </p>
+          </div>
+
+          <div className="p-6 bg-white rounded-2xl shadow-sm">
+            <h3 className="font-semibold">Databases</h3>
+            <p className="mt-2">
+              PostgreSQL, Oracle DB, MongoDB
+            </p>
+          </div>
+
+          <div className="p-6 bg-white rounded-2xl shadow-sm">
+            <h3 className="font-semibold">Security</h3>
+            <p className="mt-2">
+              Okta, MFA, OAuth2, JWT, Identity Management
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="max-w-5xl mx-auto mt-16 text-center">
+        <h2 className="text-2xl font-semibold mb-4">Get In Touch</h2>
+        <p className="text-gray-600 mb-6">
+          Open to backend engineering opportunities and cloud-native system design roles.
+        </p>
+        <a
+          href="mailto:yourmail@email.com"
+          className="px-6 py-3 bg-black text-white rounded-2xl inline-flex items-center gap-2"
+        >
+          <Mail size={16} /> Contact Me
+        </a>
+      </section>
     </div>
   );
 }
